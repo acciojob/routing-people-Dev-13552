@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react'
 
 const UserProfie = (props) => {
-    const {id} = props.match.params
+const { id } = props.match ? props.match.params : { id: 1 }
     const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`
     const [userData, setUserData] = useState([])
     
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
         function fetchData(){   
             setLoading(true)
