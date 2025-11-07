@@ -6,7 +6,7 @@ const UserProfie = (props) => {
     const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`
     const [userData, setUserData] = useState([])
     
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
         function fetchData(){   
             setLoading(true)
