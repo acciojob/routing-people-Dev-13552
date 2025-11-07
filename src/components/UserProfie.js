@@ -22,11 +22,14 @@ const { id } = props.match ? props.match.params : { id: 1 }
     
         useEffect(()=>{
             fetchData()
-        }, [])
+        }, [id])
+        if(loading){
+        return <div>Loading...</div>
+        }
   return (
     <div>
         {
-            loading ? <div>Loading...</div>:
+            
             (
                 <div>
                     <h1>User Details</h1>
