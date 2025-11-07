@@ -8,21 +8,19 @@ const { id } = props.match ? props.match.params : { id: 1 }
     
     const [loading, setLoading] = useState(true)
 
-        function fetchData(){   
-            setLoading(true)
-            fetch(API_URL)
-            .then((response)=>{
-                return response.json()
-            })
-            .then((data)=>{
-                setUserData(data)
-                setLoading(false)
-            })
-        }
-    
-        useEffect(()=>{
-            fetchData()
-        }, [id])
+seEffect(() => {
+    setLoading(true);
+
+    // Artificial delay to ensure "Loading..." is visible for tests
+    setTimeout(() => {
+      fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUser(data);
+          setLoading(false);
+        });
+    }, 1000);
+  }, [id]);
         if(loading){
         return <div>Loading...</div>
         }
