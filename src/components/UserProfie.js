@@ -8,7 +8,7 @@ const { id } = props.match ? props.match.params : { id: 1 }
     
     const [loading, setLoading] = useState(true)
 
-seEffect(() => {
+useEffect(() => {
     setLoading(true);
 
     // Artificial delay to ensure "Loading..." is visible for tests
