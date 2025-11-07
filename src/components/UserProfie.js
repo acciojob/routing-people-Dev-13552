@@ -16,13 +16,20 @@ useEffect(() => {
       fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
         .then((res) => res.json())
         .then((data) => {
-          setUser(data);
+          setUserData(data);
           setLoading(false);
-        });
+        })
+        .catch(()=>{
+            setUserData([])
+            setLoading(false)
+        })
     }, 1000);
   }, [id]);
         if(loading){
         return <div>Loading...</div>
+        }
+        if(userData.length === 0){
+            return <div>Something went wrong</div>
         }
   return (
     <div>
